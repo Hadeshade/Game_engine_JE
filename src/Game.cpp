@@ -1,8 +1,14 @@
 // Feito por Marco Antonio Nemetala Garcia 
 
 #include "Game.h"
+#include "State.h"
 
 Game* Game::instance;
+
+State& Game::GetState()
+{
+    return *state;
+}
 
 Game::Game(std::string title, int width, int height)
 {
@@ -51,6 +57,8 @@ Game::Game(std::string title, int width, int height)
             printf("Não foi possível criar o renderizador do jogo: %s\n", SDL_GetError());
             exit(-1);
         }   
+
+        state = new State();
     }
     else 
     {
@@ -68,6 +76,9 @@ Game::~Game()
     Mix_Quit();
     // Finaliza a IMG_Init inicializada
     IMG_Quit();
+    // Destroi a window e o renderer;
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
     // Finaliza o SDL_Init inicializada
     SDL_Quit();
 }
@@ -76,7 +87,7 @@ Game& Game::GetInstance()
 {
     if (Game::instance == nullptr)
     {
-        Game::instance = new Game("Marco", 1024, 600);
+        Game::instance = new Game("Marco Antonio - 180126792", 1024, 600);
     }
     return *instance;
 }
@@ -88,4 +99,11 @@ SDL_Renderer* Game::GetRenderer()
 
 void Game::Run()
 {
+    while( (GetState().QuitRequested()) != true)
+    {
+        GetState().Update(2.1);
+        GetState().Render();
+        // Serve para atrasar o processamento do próximo frame;
+        SDL_Delay(33);
+    }
 }

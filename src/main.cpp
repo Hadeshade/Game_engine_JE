@@ -4,8 +4,7 @@
 
 int main(int argc, char** argv){
     Game game = Game::GetInstance();
-
-    SDL_Delay(5000);
-
+    game.Run();
+    
     return 0;
 }

@@ -1,14 +1,17 @@
 // Feito por Marco Antonio Nemetala Garcia 
 
+#ifndef GAME_H
+#define GAME_H
+
 #include <iostream>
 #include <string>
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include "State.h"
 
-#ifndef GAME_H
-#define GAME_H
+
 
 class Game
 {
@@ -16,24 +19,16 @@ private:
     static Game* instance;
     SDL_Window* window;
     SDL_Renderer* renderer;
-    // State* state;
+    State* state = nullptr;
 public:
     Game(std::string ,int , int  );
     ~Game();
     void Run();
     SDL_Renderer* GetRenderer();
-    //State& GetState();
+    State& GetState();
     static Game& GetInstance();
 
 };
-
-// Game::Game(std::string title, int width, int height)
-// {
-// }
-
-// Game::~Game()
-// {
-// }
 
 
 
