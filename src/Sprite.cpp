@@ -34,10 +34,11 @@ void Sprite::Open(std::string file)
         printf("IMG_LoadTexture: %s\n", IMG_GetError());
     }
 
-    width = 1024;
-    height = 600;
+    // width = 1024;
+    // height = 600;
 
     SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
+    SetClip(0,0,width,height);
 }
 
 void Sprite::SetClip(int x, int y, int w, int h)

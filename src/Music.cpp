@@ -35,6 +35,9 @@ void Music::Open(std::string file)
         exit(-1);
     }
 
+    // Faz a música rodar...
+    Play(1);
+
 }
 
 bool Music::IsOpen()

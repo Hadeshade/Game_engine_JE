@@ -3,12 +3,12 @@
 #include "Sprite.h"
 
 
-State::State()
+State::State() : bg("img/ocean.jpg"), music("audio/stageState.ogg")
 {
     // Inicializa o quitRequested
     quitRequested = false;
     // Instancia a classe Sprite:
-    //Sprite inicio("img/penguinface.png");
+    // Sprite inicio("img/penguinface.png");
     // bg = Sprite("img/ocean.jpg");
     // music = Music();
 }
@@ -37,7 +37,7 @@ void State::Update(float dt)
 void State::Render()
 {
     // Chamar o Render do fundo (bg) 
-    //bg.Render(512,300);
+    bg.Render(0,0);
 }
 
 State::~State()

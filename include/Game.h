@@ -20,8 +20,8 @@ private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     State* state = nullptr;
-public:
     Game(std::string ,int , int  );
+public:
     ~Game();
     void Run();
     SDL_Renderer* GetRenderer();
