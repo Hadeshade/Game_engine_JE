@@ -1,4 +1,8 @@
-// Feito por Marco Antonio Nemetala Garcia 
+// Feito por Marco Antonio Nemetala Garcia;
+/*
+    Classe Game é responsável por inicializar recursos, rodar o loop principal
+do jogo e liberar os recursos quando o jogo for encerrado;
+*/
 
 #ifndef GAME_H
 #define GAME_H

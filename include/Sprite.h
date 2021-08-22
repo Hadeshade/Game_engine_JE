@@ -1,4 +1,5 @@
 // Feito por Marco Antonio Nemetala Garcia 
+// Sprite irá tomar conta de uma imagem dentro do state;
 
 #ifndef SPRITE_H
 #define SPRITE_H
