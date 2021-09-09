@@ -8,8 +8,10 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <string>
+#include "Component.h"
+#include "GameObject.h"
 
-class Sprite
+class Sprite  : public Component
 {
 private:
     SDL_Texture* texture;
@@ -17,15 +19,19 @@ private:
     int height;
     SDL_Rect clipRect;
 public:
-    Sprite();
-    Sprite(std::string file);
+    Sprite(GameObject& gameObj);
+    Sprite(std::string file,GameObject& gameObj);
     ~Sprite();
     void Open(std::string file);
     void SetClip(int x, int y, int w, int h);
-    void Render(int x, int y);
+    // void Render(int x, int y);
+    void Render();
     int GetWidth();
     int GetHeight();
     bool IsOpen();
+    void Update(float dt);
+    bool Is(std::string type);
+
 };
 
 

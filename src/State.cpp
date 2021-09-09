@@ -38,7 +38,7 @@ void State::Update(float dt)
 void State::Render()
 {
     // Chamar o Render do fundo (bg) 
-    bg.Render(0,0);
+    bg.Render();
 }
 
 State::~State()

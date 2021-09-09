@@ -3,17 +3,21 @@
 #include "Sprite.h"
 #include "Game.h"
 
-Sprite::Sprite()
+
+//Construtor
+Sprite::Sprite(GameObject& gameObj) : Component(gameObj)
 {
     texture = nullptr;
 }
 
-Sprite::Sprite(std::string file)
+// Sobrecarga de Construtor
+Sprite::Sprite(std::string file,GameObject& gameObj) : Component(gameObj)
 {
     texture = nullptr;
     Open(file);
 }
 
+// Destrutor
 Sprite::~Sprite()
 {
     SDL_DestroyTexture(texture);
@@ -50,11 +54,11 @@ void Sprite::SetClip(int x, int y, int w, int h)
 }
 
 // Uma wrapper para a função SDL_RenderCopy;
-void Sprite::Render(int x, int y)
+void Sprite::Render() // (int x, int y)
 {
     SDL_Rect dstRect;
-    dstRect.x = x;
-    dstRect.y = y;
+    dstRect.x = clipRect.x ; // GameObject::box.x;
+    dstRect.y = clipRect.y ; // GameObject::box.y;
     dstRect.w = clipRect.w;
     dstRect.h = clipRect.h;
 
@@ -85,4 +89,16 @@ bool Sprite::IsOpen()
     {
         return true;
     }
+}
+
+// Função herdada de Component
+void Sprite::Update(float dt)
+{
+
+}
+
+// Função herdada de Component
+bool Sprite::Is(std::string type)
+{
+
 }
