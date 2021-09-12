@@ -6,12 +6,15 @@
 #include <algorithm>
 #include <string>
 #include <SDL2/SDL.h>
-#include "Component.h"
+#include <memory>
+
+
+class Component;
 
 class GameObject
 {
 private:
-    std::vector<Component*> components;
+    std::vector<std::unique_ptr<Component>> components;
     bool isDead;
 public:
     GameObject();

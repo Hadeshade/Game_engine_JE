@@ -1,5 +1,6 @@
 // Feito por Marco Antonio Nemetala Garcia
 #include "GameObject.h"
+#include "Component.h"
 
 // Construtor
 GameObject::GameObject()
@@ -50,18 +51,19 @@ void GameObject::RequestDelete()
 void GameObject::AddComponent(Component* cpt)
 {
     // Adiciona o componente ao vetor de componentes
-    components.push_back(cpt);
+    components.emplace_back(cpt);
 }
 
 // Remove o componente ao vetor de componentes
 void GameObject::RemoveComponent(Component* cpt)
 {
     // Remove o componente ao vetor de componentes 
-    std::vector<Component*>::iterator pos = std::find(components.begin(), components.end(), cpt);
-    if (pos != components.end())
-    {
-        components.erase(pos);
-    }
+    // TA TUDO ERRADOO
+    // std::vector<Component*>::iterator pos = std::find(components.begin(), components.end(), cpt);
+    // if (pos != components.end())
+    // {
+    //     components.erase(pos);
+    // }
     // components.erase(std::remove(components.begin(), components.end(), cpt), components.end());
     
 }

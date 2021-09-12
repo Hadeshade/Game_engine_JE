@@ -11,21 +11,27 @@ fim de jogo, etc. Cada um desses seria um State.
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include <memory>
 #include "Sprite.h"
 #include "Music.h"
 
 class State
 {
 private:
-    Sprite bg;
-    Music music;
+    // Sprite bg;
+    // Music music;
     bool quitRequested;
+
+    void Input();
+    void AddObject(int mouseX, int mouseY);
+    std::vector<std::unique_ptr<GameObject>> objectArray;
 public:
     State();
     bool QuitRequested();
     void LoadAssets();
     void Update(float dt);
     void Render();
+
     ~State();
 };
 
