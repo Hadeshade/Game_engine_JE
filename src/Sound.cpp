@@ -13,10 +13,6 @@ Sound::Sound(GameObject& associated, std::string file) : Sound(associated) // Po
     Open(file);
 }
 
-Sound::~Sound()
-{
-
-}
 
 void Sound::Play(int times = 1)
 {
@@ -51,4 +47,11 @@ void Sound::Render()
 {}
 
 bool Sound::Is(std::string type)
-{}
+{
+    if (type == "Sound")
+    {
+        return true;
+    }
+    return false;
+    
+}

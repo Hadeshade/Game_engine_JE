@@ -26,7 +26,7 @@ void Face::Render()
 
 bool Face::Is(std::string type)
 {
-    if(type.compare("Face") == 0)
+    if(type == "Face")
     {
         return true;
     }

@@ -7,6 +7,9 @@
 #include <string>
 #include <SDL2/SDL.h>
 #include <memory>
+#include <SDL2/SDL_rect.h>
+
+#include "Rect.h"
 
 
 class Component;
@@ -26,7 +29,7 @@ public:
     void AddComponent(Component* cpt);
     void RemoveComponent(Component* cpt);
     Component* GetComponent(std::string type);
-    SDL_Rect box;
+    Rect box;
 };
 
 

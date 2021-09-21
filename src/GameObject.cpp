@@ -18,9 +18,9 @@ GameObject::~GameObject()
 void GameObject::Update(float dt)
 {
     //percorre o vetor de componentes chamando o Update(dt) dos mesmos
-    for (std::vector<Component*>::size_type i = 0; i != components.size(); i++)
+    for (unsigned int i = 0; i < components.size(); i++)
     {
-        components[i]->Update(2.1);
+        components[i]->Update(dt);
     }
     
 }
@@ -29,7 +29,7 @@ void GameObject::Update(float dt)
 void GameObject::Render()
 {
     // Percorre o vetor de componenets chamando o Render dos mesmos.
-    for (std::vector<Component*>::size_type i = 0; i != components.size(); i++)
+    for (unsigned int i = 0; i < components.size(); i++)
     {
         components[i]->Render();
     }
@@ -58,18 +58,36 @@ void GameObject::AddComponent(Component* cpt)
 void GameObject::RemoveComponent(Component* cpt)
 {
     // Remove o componente ao vetor de componentes 
-    // TA TUDO ERRADOO
-    // std::vector<Component*>::iterator pos = std::find(components.begin(), components.end(), cpt);
+
+    unsigned int pos = 0;
+    while (pos != components.size())
+    {
+        if (components.at(pos).get() == cpt)
+        {
+            components.erase(components.begin()+pos);
+            break;
+        }
+        pos++;
+    }
+    
     // if (pos != components.end())
     // {
     //     components.erase(pos);
     // }
-    // components.erase(std::remove(components.begin(), components.end(), cpt), components.end());
-    
+       
 }
 
 // Retorna um ponteiro para o componente do tipo solicitado que estiver adicionado nesse objeto. nullptr caso esse componente não exista. 
 Component* GameObject::GetComponent(std::string type)
 {
     // Retorna um ponteiro para o componente do tipo solicitado que estiver adicionado nesse objeto. nullptr caso esse componente não exista. 
+    unsigned int pos = 0;
+    while (pos != components.size())
+    {
+        if(components.at(pos)->Is(type))
+        {
+            return components.at(pos).get();
+        }
+    }
+    return nullptr;
 }

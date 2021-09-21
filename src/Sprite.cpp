@@ -100,5 +100,9 @@ void Sprite::Update(float dt)
 // Função herdada de Component
 bool Sprite::Is(std::string type)
 {
-
+    if(type == "Sprite")
+    {
+        return true;
+    }
+    return false;
 }
