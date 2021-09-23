@@ -57,8 +57,8 @@ void Sprite::SetClip(int x, int y, int w, int h)
 void Sprite::Render() // (int x, int y)
 {
     SDL_Rect dstRect;
-    dstRect.x = clipRect.x ; // GameObject::box.x;
-    dstRect.y = clipRect.y ; // GameObject::box.y;
+    dstRect.x = associated.box.x ; // GameObject::box.x;
+    dstRect.y = associated.box.y ; // GameObject::box.y;
     dstRect.w = clipRect.w;
     dstRect.h = clipRect.h;
 

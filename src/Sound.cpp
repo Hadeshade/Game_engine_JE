@@ -38,7 +38,9 @@ void Sound::Open(std::string file)
 }
 
 bool Sound::IsOpen()
-{}
+{
+    return true;
+}
 
 void Sound::Update(float dt = 0)
 {}

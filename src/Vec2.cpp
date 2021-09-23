@@ -13,7 +13,7 @@ Vec2::~Vec2()
 
 Vec2 Vec2::GetRotated(float pos)
 {
-    
+    return Vec2(x,y);
 }
 
 Vec2 Vec2::operator+(const Vec2& vec) const {

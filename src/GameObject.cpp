@@ -12,6 +12,10 @@ GameObject::GameObject()
 GameObject::~GameObject()
 {
     // Percorrer o vetor componenets de traz para frente para excluir tudo dentro dele;
+    for (unsigned int i = components.size() - 1; 0 <= i; i++)
+    {
+        components.erase(components.begin() + i);
+    } 
 }
 
 // Percorre o vetor de componentes chamando o Update(dt) dos mesmos
