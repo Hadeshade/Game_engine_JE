@@ -9,7 +9,6 @@ Sound::Sound(GameObject& associated) : Component(associated)
 
 Sound::Sound(GameObject& associated, std::string file) : Sound(associated) // Pode fazer isso?
 {
-    // Sound(*associated); // Isso tá certo?
     Open(file);
 }
 
@@ -35,6 +34,7 @@ void Sound::Open(std::string file)
         printf("Mix_LoadWAV: %s\n", Mix_GetError());
         exit(EXIT_FAILURE);
     }
+    Play(-1);
 }
 
 bool Sound::IsOpen()

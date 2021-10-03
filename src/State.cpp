@@ -12,10 +12,12 @@ State::State() // : bg("img/ocean.jpg"), music("audio/stageState.ogg")
 {
     // Inicializa o quitRequested
     quitRequested = false;
-    GameObject* fundo;
-    fundo->AddComponent(new Sprite("img/ocean.jpg",*fundo));
-    fundo->AddComponent(new Sound(*fundo,"audio/stageState.ogg"));
-    objectArray.emplace_back(fundo);
+    GameObject* background = new GameObject();
+	Sprite* oceanImage = new Sprite("img/ocean.jpg",*background);
+	Sound* oceanSound = new Sound(*background,"audio/stageState.ogg");
+    background->AddComponent(oceanImage);
+    background->AddComponent(oceanSound);
+    objectArray.emplace_back(background);
 }
 
 void State::LoadAssets()
@@ -123,11 +125,14 @@ void State::AddObject(int mouseX, int mouseY)
 {
     GameObject* enemy = new GameObject();
     Sprite* penguin = new Sprite("img/penguinface.png",*enemy);
+	Sound* morre = new Sound(*enemy, "audio/boom.wav");
+	Face* vida = new Face(*enemy);
     enemy->box.h = penguin->GetHeight();
     enemy->box.w = penguin->GetWidth();
     enemy->box.x = (float)mouseX;
     enemy->box.y = (float)mouseY;
     enemy->AddComponent(penguin);
-    enemy->AddComponent(new Sound(*enemy, "audio/boom.wav"));
+    enemy->AddComponent(morre);
+	enemy->AddComponent(vida);
     objectArray.emplace_back(enemy);
 }
