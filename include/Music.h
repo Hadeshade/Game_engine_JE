@@ -1,4 +1,5 @@
 // Feito por Marco Antonio Nemetala Garcia
+// Music irá tomar conta de uma música no state;
 
 #ifndef MUSIC_H
 #define MUSIC_H

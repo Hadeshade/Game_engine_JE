@@ -1,3 +1,4 @@
+// Feito por Marco Antonio Nemetala Garcia
 #include <iostream>
 #include <SDL2/SDL.h>
 #include "Game.h"

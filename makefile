@@ -106,7 +106,7 @@ release: FLAGS += $(RFLAGS)
 release: $(EXEC)
 
 debug: FLAGS += $(DFLAGS) 
-release: $(EXEC)
+debug: $(EXEC)
 
 folders:
 ifeq ($(OS), Windows_NT)
