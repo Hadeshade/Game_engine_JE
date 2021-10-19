@@ -18,14 +18,14 @@ private:
     int mapDepth;
 
 public:
-    TileMap(GameObject& associated, std::string file, TileSet* tileSet);
+    TileMap(GameObject& associated, std::string file, TileSet* tileSetado);
     void Load(std::string file);
-    void SetTileSet(TileSet* tileSet);
+    void SetTileSet(TileSet* tileSetado);
     int& At(int x, int y, int z);
     void Render();
     void RenderLayer(int layer,int cameraX, int cameraY);
-    int getWidth();
-    int getHeight();
+    int GetWidth();
+    int GetHeight();
     int GetDepth();
     ~TileMap();
 };
