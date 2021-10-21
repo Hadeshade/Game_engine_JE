@@ -21,7 +21,7 @@ public:
     TileMap(GameObject& associated, std::string file, TileSet* tileSetado);
     void Load(std::string file);
     void SetTileSet(TileSet* tileSetado);
-    int& At(int x, int y, int z);
+    int At(int x, int y, int z);
     void Render();
     void RenderLayer(int layer,int cameraX, int cameraY);
     int GetWidth();

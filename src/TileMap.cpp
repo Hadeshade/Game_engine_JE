@@ -25,7 +25,7 @@ void TileMap::Load(std::string file)
 
     // Pegando as informações do arquivo;
     int valor;
-    int teste[3];
+    int dimMapa[3];
     int parametro = 0;
     std::string cont;
     std::string dados;
@@ -40,14 +40,14 @@ void TileMap::Load(std::string file)
             valor += dimensao.at(i) - '0';
         }
         else{
-            teste[parametro] = valor;
+            dimMapa[parametro] = valor;
             valor = 0;
             parametro++;
         }
     }
-    mapWidth = teste[0];
-    mapHeight = teste[1];
-    mapDepth = teste[2];
+    mapWidth = dimMapa[0];
+    mapHeight = dimMapa[1];
+    mapDepth = dimMapa[2];
 
     
 
@@ -84,13 +84,24 @@ void TileMap::SetTileSet(TileSet* tileSetado)
     tileSet = tileSetado;
 }
 
-void TileMap::Render()
+int TileMap::At(int x, int y, int z)
 {
-    
+    // Retornar o valor do vetor que corresponde a Matriz;
+    // Assumindo que começa com 0 exemplo: x=0 , y=0 e z= 0;
+    int dim = z * mapHeight * mapWidth;
+    int altura = y * mapWidth;
+    return (x + altura + dim);
+
 }
 
-void TileMap::RenderLayer(int layer,int cameraX, int cameraY)
+void TileMap::Render()
 {
+    // Precisa do RenderLayer que eu não sei como fazer!
+}
+
+void TileMap::RenderLayer(int layer,int cameraX = 0, int cameraY = 0)
+{
+    // Pegar tile a tile e renderizar, mas ja não existe a função RenderTile ?
     
 }
 

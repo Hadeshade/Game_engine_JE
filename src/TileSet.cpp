@@ -6,7 +6,7 @@ TileSet::TileSet(int tileW, int tileH, std::string file)
 {
     tileWidth = tileW;
     tileHeight = tileH;
-    // Abre o Sprite, mas com qual GameObejct?;
+    // Abre o Sprite, mas com qual GameObject?;
 }
 
 void TileSet::RenderTile(unsigned index, float x, float y)
