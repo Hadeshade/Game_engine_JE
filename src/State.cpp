@@ -4,6 +4,8 @@
 #include "Sound.h"
 #include "Face.h"
 #include "Vec2.h"
+#include "TileMap.h"
+#include "TileSet.h"
 #include <cmath>
 
 
@@ -15,6 +17,9 @@ State::State() // : bg("img/ocean.jpg"), music("audio/stageState.ogg")
     GameObject* background = new GameObject();
 	Sprite* oceanImage = new Sprite("img/ocean.jpg",*background);
 	Sound* oceanSound = new Sound(*background,"audio/stageState.ogg");
+	TileSet* imagemMapa = new TileSet(std::string("img/tileset.png"), *background, 64, 64);
+	TileMap* mapa = new TileMap(*background, std::string("map/tileMap.txt"), imagemMapa);
+	background->AddComponent(mapa);
     background->AddComponent(oceanImage);
     background->AddComponent(oceanSound);
     objectArray.emplace_back(background);

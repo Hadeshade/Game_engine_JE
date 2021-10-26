@@ -9,14 +9,14 @@
 class TileSet
 {
 private:
-    // Sprite tileSet;
+    Sprite tileSet;
     int rows;
     int collumns;
     int tileWidth;
     int tileHeight;
 
 public:
-    TileSet(int tileWidth, int tileHeight, std::string file);
+    TileSet(std::string file, GameObject& associated,int tileWidth, int tileHeight);
     void RenderTile (unsigned index, float x, float y);
     int GetTileWidth();
     int GetTileHeight();

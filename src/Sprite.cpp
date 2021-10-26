@@ -53,12 +53,26 @@ void Sprite::SetClip(int x, int y, int w, int h)
     clipRect.h = h;
 }
 
+
 // Uma wrapper para a função SDL_RenderCopy;
 void Sprite::Render() // (int x, int y)
 {
     SDL_Rect dstRect;
     dstRect.x = associated.box.x ; // GameObject::box.x;
     dstRect.y = associated.box.y ; // GameObject::box.y;
+    dstRect.w = clipRect.w;
+    dstRect.h = clipRect.h;
+
+    SDL_RenderCopy(Game::GetInstance().GetRenderer(),texture, &clipRect, &dstRect);
+
+}
+
+// Uma wrapper para a função SDL_RenderCopy;
+void Sprite::Render(int x, int y) // (int x, int y)
+{
+    SDL_Rect dstRect;
+    dstRect.x = x ; // GameObject::box.x;
+    dstRect.y = y ; // GameObject::box.y;
     dstRect.w = clipRect.w;
     dstRect.h = clipRect.h;
 

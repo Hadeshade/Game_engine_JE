@@ -101,8 +101,13 @@ void TileMap::Render()
 
 void TileMap::RenderLayer(int layer,int cameraX = 0, int cameraY = 0)
 {
-    // Pegar tile a tile e renderizar, mas ja não existe a função RenderTile ?
-    
+    for (int j = 0; j < mapHeight; j++)
+    {
+        for (int i = 0; i < mapWidth; i++)
+        {
+            tileSet->RenderTile(At(i,j,layer), i*tileSet->GetTileWidth() - cameraX, j*tileSet->GetTileHeight() - cameraY );
+        }
+    }
 }
 
 int TileMap::GetWidth()
@@ -120,7 +125,24 @@ int TileMap::GetDepth()
     return mapDepth;
 }
 
+void TileMap::Update(float dt = 0)
+{
+
+}
+
+bool TileMap::Is(std::string type)
+{
+    if (type == "TileMap")
+    {
+       return true; 
+    }
+    return false;
+}
+
 TileMap::~TileMap()
 {
+    tileSet = nullptr;
+    tileMatrix.clear();
 }
+
 

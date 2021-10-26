@@ -2,16 +2,21 @@
 
 #include "TileSet.h"
 
-TileSet::TileSet(int tileW, int tileH, std::string file)
+TileSet::TileSet(std::string file, GameObject& associated,int tileW, int tileH) : tileSet(file, associated)
 {
     tileWidth = tileW;
     tileHeight = tileH;
-    // Abre o Sprite, mas com qual GameObject?;
+
+    collumns = tileSet.GetWidth()/tileWidth;
+    rows = tileSet.GetHeight()/tileHeight;
 }
 
 void TileSet::RenderTile(unsigned index, float x, float y)
 {
-    // Não faço ideia do que ele quer aqui!
+    if(index > -1 && index < rows* collumns){
+        tileSet.SetClip(tileWidth * (index % collumns), tileHeight * (index/collumns), tileWidth, tileHeight);
+        tileSet.Render(x,y);
+    }
 }
 
 int TileSet::GetTileHeight()
