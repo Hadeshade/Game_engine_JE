@@ -2,6 +2,7 @@
 
 #include "Sprite.h"
 #include "Game.h"
+#include "Resources.h"
 
 
 //Construtor
@@ -20,23 +21,26 @@ Sprite::Sprite(std::string file,GameObject& gameObj) : Component(gameObj)
 // Destrutor
 Sprite::~Sprite()
 {
-    SDL_DestroyTexture(texture);
+    // SDL_DestroyTexture(texture);
 }
 
 void Sprite::Open(std::string file)
 {
-    // Verifica se tem alguma imagem carregada antes;
-    if(texture != nullptr)
-    {
-        texture = nullptr;
-    }
+    // // Verifica se tem alguma imagem carregada antes;
+    // if(texture != nullptr)
+    // {
+    //     texture = nullptr;
+    // }
 
     // Carregando a textura e trantadando erro:
-    texture = IMG_LoadTexture( Game::GetInstance().GetRenderer(), file.c_str());
-    if(texture == nullptr)
-    {
-        printf("IMG_LoadTexture: %s\n", IMG_GetError());
-    }
+    // texture = IMG_LoadTexture( Game::GetInstance().GetRenderer(), file.c_str());
+    texture = Resources::GetImage(file);
+
+    // Não precisa mais do código abaixo pois faz isso em Resources;
+    // if(texture == nullptr)
+    // {
+    //     printf("IMG_LoadTexture: %s\n", IMG_GetError());
+    // }
 
     // width = 1024;
     // height = 600;
