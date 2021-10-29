@@ -45,12 +45,18 @@ void State::Update(float dt)
     // }
 
     Input();
-    for (unsigned int i = 0; i < objectArray.size(); i++)
+
+	for (unsigned int i = 0; i < objectArray.size(); i++)
     {
         objectArray[i]->Update(dt);
+    }
+
+    for (unsigned int i = 0; i < objectArray.size(); i++)
+    {
+        // objectArray[i]->Update(dt);
         if(objectArray[i]->IsDead())
         {
-            objectArray.erase(objectArray.begin()+i);
+            objectArray.erase(begin(objectArray)+i);
         }
 
     }
