@@ -3,19 +3,20 @@
 #include "Component.h"
 
 // Construtor
-GameObject::GameObject()
+GameObject::GameObject(): isDead(false)
 {
-    isDead = false;
+    // isDead = false;
 }
 
 // Destrutor
 GameObject::~GameObject()
 {
     // Percorrer o vetor componenets de traz para frente para excluir tudo dentro dele;
-    for (int i = components.size() - 1; i >= 0; i--)
-    {
-        components.erase(components.begin() + i);
-    } 
+    // for (int i = components.size() - 1; i >= 0; i--)
+    // {
+    //     components.erase(components.begin() + i);
+    // } 
+    components.clear();
 }
 
 // Percorre o vetor de componentes chamando o Update(dt) dos mesmos
@@ -92,6 +93,7 @@ Component* GameObject::GetComponent(std::string type)
         {
             return components.at(pos).get();
         }
+        pos++;
     }
     return nullptr;
 }

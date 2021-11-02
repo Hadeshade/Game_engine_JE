@@ -2,10 +2,13 @@
 #ifndef VEC2_H
 #define VEC2_H
 
+#include <cmath>
+
 class Vec2
 {
 private:
     /* data */
+    double PI = 3.141592653589793;
 public:
     Vec2(float x, float y);
     float x;

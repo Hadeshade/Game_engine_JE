@@ -13,7 +13,7 @@ Vec2::~Vec2()
 
 Vec2 Vec2::GetRotated(float pos)
 {
-    return Vec2(x,y);
+  return Vec2( x * cos(pos* PI/180 ) - y * sin(pos * PI/180), y * cos(pos* PI/180 ) - x * sin(pos * PI/180) );
 }
 
 Vec2 Vec2::operator+(const Vec2& vec) const {
